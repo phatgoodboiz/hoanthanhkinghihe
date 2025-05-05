@@ -129,29 +129,31 @@
     </div>
   </div>
 
-  <script>
-    const endDate = new Date("2026-02-02T00:00:00").getTime();
+<script>
+  const endDate = new Date("2026-02-02T00:00:00"); // Gộp lại duy nhất
 
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = endDate - now;
+  function updateCountdown() {
+    const now = new Date();
+    const distance = endDate - now;
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+    if (distance >= 0) {
       document.getElementById("countdown").innerHTML =
         `${days} ngày ${hours} giờ ${minutes} phút ${seconds} giây`;
-
-      if (distance < 0) {
-        document.getElementById("countdown").innerHTML = "🎉 ĐÃ RA QUÂN! 🎉";
-      }
+    } else {
+      document.getElementById("countdown").innerHTML = "🎉 ĐÃ RA QUÂN! 🎉";
     }
+  }
 
-    setInterval(updateCountdown, 1000);
-      const startDate = new Date('2024-02-27');
-const today = new Date();
+  setInterval(updateCountdown, 1000);
+
+  // Thanh tiến trình
+  const startDate = new Date("2024-02-27");
+  const today = new Date();
 
   const totalDays = Math.round((endDate - startDate) / (1000 * 60 * 60 * 24));
   const passedDays = Math.round((today - startDate) / (1000 * 60 * 60 * 24));
@@ -163,8 +165,7 @@ const today = new Date();
   progressBar.style.width = progressPercent + "%";
   progressBar.textContent = progressPercent + "%";
   dayCount.textContent = `${passedDays} / ${totalDays} ngày đã trôi qua`;
-  </script>
-
+</script>
 
 
 
