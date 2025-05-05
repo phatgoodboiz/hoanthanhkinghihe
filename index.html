@@ -78,7 +78,11 @@
       margin: 8px 0;
     }
     
-    <div style="margin-top: 40px; font-family: 'Segoe UI', sans-serif;">
+  </style>
+</head>
+<body>
+
+  <div class="info-section">
   <h3>Tiến trình ra quân</h3>
   <p id="dayCount" style="margin-bottom: 10px; font-size: 18px;"></p>
 
@@ -96,10 +100,6 @@
     </div>
   </div>
 </div>
-
-  </style>
-</head>
-<body>
 
   <div class="profile-header">
     <div class="cover"></div>
@@ -163,11 +163,11 @@
   const progressBar = document.getElementById("progressBar");
   const dayCount = document.getElementById("dayCount");
 
-  // Cập nhật giao diện
   progressBar.style.width = progressPercent + "%";
   progressBar.textContent = progressPercent + "%";
   dayCount.textContent = `${passedDays} / ${totalDays} ngày đã trôi qua`;
 </script>
+
 
 </body>
 </html>
