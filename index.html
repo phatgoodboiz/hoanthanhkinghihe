@@ -77,6 +77,7 @@
     .info-list p {
       margin: 8px 0;
     }
+    
     <div style="margin-top: 40px; font-family: 'Segoe UI', sans-serif;">
   <h3>Tiến trình ra quân</h3>
   <p id="dayCount" style="margin-bottom: 10px; font-size: 18px;"></p>
@@ -150,6 +151,23 @@
 
     setInterval(updateCountdown, 1000);
   </script>
+<script>
+  const startDate = new Date('2024-02-02');
+  const endDate = new Date('2026-02-02');
+  const today = new Date();
+
+  const totalDays = Math.round((endDate - startDate) / (1000 * 60 * 60 * 24));
+  const passedDays = Math.round((today - startDate) / (1000 * 60 * 60 * 24));
+  const progressPercent = Math.min(100, Math.max(0, Math.round((passedDays / totalDays) * 100)));
+
+  const progressBar = document.getElementById("progressBar");
+  const dayCount = document.getElementById("dayCount");
+
+  // Cập nhật giao diện
+  progressBar.style.width = progressPercent + "%";
+  progressBar.textContent = progressPercent + "%";
+  dayCount.textContent = `${passedDays} / ${totalDays} ngày đã trôi qua`;
+</script>
 
 </body>
 </html>
