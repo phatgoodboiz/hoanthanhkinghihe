@@ -118,6 +118,8 @@
     </div>
   </div>
 </div>
+  <p id="dailyQuote" style="font-style: italic; margin-top: 20px; font-size: 1.1em; color: #333;"></p>
+
   <div class="info-section">
     <h3>Thông tin cá nhân</h3>
     <div class="info-list">
@@ -165,6 +167,24 @@
   progressBar.style.width = progressPercent + "%";
   progressBar.textContent = progressPercent + "%";
   dayCount.textContent = `${passedDays} / ${totalDays} ngày đã trôi qua`;
+  
+ const quotes = [
+  "Mỗi ngày trôi qua là một bước gần hơn đến tự do.",
+  "Hôm nay kiên cường, ngày mai vinh quang!",
+  "Đừng đếm ngày, hãy làm cho từng ngày có ý nghĩa.",
+  "Chịu đựng hôm nay để tự hào ngày mai.",
+  "Tổ quốc ghi công, người lính ghi nhớ.",
+  "Kỷ luật là sức mạnh của quân đội – và của chính bạn.",
+  "Sắt đá hôm nay, vững vàng cả đời.",
+  "Chỉ cần không bỏ cuộc, bạn đang chiến thắng.",
+  "Một người lính thực thụ không than phiền, chỉ tiến lên.",
+  "Mỗi buổi sáng là cơ hội mới để mạnh mẽ hơn hôm qua."
+];
+
+// Hiển thị quote ngẫu nhiên mỗi lần tải trang
+document.getElementById("dailyQuote").textContent =
+  quotes[Math.floor(Math.random() * quotes.length)];
+
 </script>
 
 
