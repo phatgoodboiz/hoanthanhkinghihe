@@ -125,7 +125,33 @@
     </div>
   </div>
 </div>
-  
+  <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+  <div id="cd" style="
+    width: 50px; height: 50px;
+    border-radius: 50%;
+    background-image: url('https://i.imgur.com/v1aHDAZ.png');
+    background-size: cover;
+    margin-right: 10px;
+    animation: spin 4s linear infinite;
+    animation-play-state: paused;
+  "></div>
+
+  <button id="musicBtn" style="
+    padding: 8px 16px;
+    font-size: 16px;
+    border: none;
+    background-color: #4caf50;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+  ">Phát nhạc</button>
+
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+    Trình duyệt không hỗ trợ âm thanh.
+  </audio>
+</div>
+
 
   <div class="info-section">
     <h3>Thông tin cá nhân</h3>
@@ -159,32 +185,6 @@
   }
 
   setInterval(updateCountdown, 1000);
-<div style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-  <div id="cd" style="
-    width: 50px; height: 50px;
-    border-radius: 50%;
-    background-image: url('https://i.imgur.com/v1aHDAZ.png');
-    background-size: cover;
-    margin-right: 10px;
-    animation: spin 4s linear infinite;
-    animation-play-state: paused;
-  "></div>
-
-  <button id="musicBtn" style="
-    padding: 8px 16px;
-    font-size: 16px;
-    border: none;
-    background-color: #4caf50;
-    color: white;
-    border-radius: 8px;
-    cursor: pointer;
-  ">Phát nhạc</button>
-
-  <audio id="bgMusic" loop>
-    <source src="music.mp3" type="audio/mpeg">
-    Trình duyệt không hỗ trợ âm thanh.
-  </audio>
-</div>
   
   // Thanh tiến trình
   const startDate = new Date("2024-02-27");
