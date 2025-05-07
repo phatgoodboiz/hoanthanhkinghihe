@@ -78,6 +78,12 @@
       margin: 8px 0;
     }
     
+    @keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+    
   </style>
 </head>
 <body>
@@ -153,7 +159,33 @@
   }
 
   setInterval(updateCountdown, 1000);
+<div style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+  <div id="cd" style="
+    width: 50px; height: 50px;
+    border-radius: 50%;
+    background-image: url('https://i.imgur.com/v1aHDAZ.png');
+    background-size: cover;
+    margin-right: 10px;
+    animation: spin 4s linear infinite;
+    animation-play-state: paused;
+  "></div>
 
+  <button id="musicBtn" style="
+    padding: 8px 16px;
+    font-size: 16px;
+    border: none;
+    background-color: #4caf50;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+  ">Phát nhạc</button>
+
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+    Trình duyệt không hỗ trợ âm thanh.
+  </audio>
+</div>
+  
   // Thanh tiến trình
   const startDate = new Date("2024-02-27");
   const today = new Date();
@@ -185,6 +217,26 @@
 // Hiển thị quote ngẫu nhiên mỗi lần tải trang
 document.getElementById("dailyQuote").textContent =
   quotes[Math.floor(Math.random() * quotes.length)];
+
+  const musicBtn = document.getElementById("musicBtn");
+const bgMusic = document.getElementById("bgMusic");
+const cd = document.getElementById("cd");
+
+let isPlaying = false;
+
+musicBtn.addEventListener("click", function () {
+  if (!isPlaying) {
+    bgMusic.play();
+    cd.style.animationPlayState = "running";
+    musicBtn.textContent = "Tạm dừng";
+  } else {
+    bgMusic.pause();
+    cd.style.animationPlayState = "paused";
+    musicBtn.textContent = "Phát nhạc";
+  }
+  isPlaying = !isPlaying;
+});
+
 
 </script>
 
