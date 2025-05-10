@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hi-cùng Phát nghỉ hè nha</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
       margin: 0;
@@ -77,6 +78,20 @@
     .info-list p {
       margin: 8px 0;
     }
+    .music-btn {
+  font-size: 24px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.music-btn:hover {
+  background-color: #388e3c;
+}
+
     
     @keyframes spin {
   from { transform: rotate(0deg); }
@@ -135,9 +150,9 @@
     animation-play-state: paused;
   "></div>
 
-  <button id="prevBtn">⏮️</button>
-  <button id="playBtn">▶️</button>
-  <button id="nextBtn">⏭️</button>
+<button id="prevBtn" class="music-btn"><i class="fas fa-backward"></i></button>
+<button id="playBtn" class="music-btn"><i class="fas fa-play"></i></button>
+<button id="nextBtn" class="music-btn"><i class="fas fa-forward"></i></button>
 
   <audio id="player" src="" loop></audio>
 </div>
@@ -229,14 +244,13 @@ player.src = playlist[currentTrack].src;
 
 function playMusic() {
   player.play();
-  playBtn.textContent = "⏸️";
+  playBtn.innerHTML = '<i class="fas fa-pause"></i>';
   cd.style.animationPlayState = "running";
   isPlaying = true;
 }
-
 function pauseMusic() {
   player.pause();
-  playBtn.textContent = "▶️";
+  playBtn.innerHTML = '<i class="fas fa-play"></i>';
   cd.style.animationPlayState = "paused";
   isPlaying = false;
 }
